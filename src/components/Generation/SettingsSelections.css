@@ -1,8 +1,12 @@
 .selectionRow{
     /* style = {{display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center", color: "white"}} */
     display: flex;
-    justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
+}
+
+.selections{
+    display:flex;
+    flex-direction: column;
 }
