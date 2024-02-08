@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
+import SettingsSelections from './SettingsSelections';
 
 const TabSelections = () =>{
 
-    const [selection, setSelection] = useState();
+    const [selection, setSelection] = useState("None");
 
     const grades = {
-        "1st": [],
-        "2nd": [],
-        "3rd": [],
-        "4th": [],
+        "1st": ["Numbers", "Telling Time", "Place Value", "Fraction"],
+        "2nd": ["Counting Money", "Telling Time", "Adding", "Subtracting"],
+        "3rd": ["Addition", "Subtraction", "Multiplication", "Division"],
+        "4th": ["Place Value", "Rounding"],
         "5th": [],
         "6th": [],
         "7th": [],
@@ -21,6 +22,10 @@ const TabSelections = () =>{
         "12+": [],
     }
 
+    const handleTabSelect = (e) =>{
+        setSelection(e.target.textContent);
+        console.log(e.target.textContent)
+    }
 
 
 
@@ -30,14 +35,14 @@ const TabSelections = () =>{
                 {
                     Object.keys(grades).map((grade) =>{
                         return(            
-                            <Nav.Item>
+                            <Nav.Item onClick={handleTabSelect}>
                                 <Nav.Link>{grade}</Nav.Link>
                             </Nav.Item>
                         )
                     })
                 }
             </Nav>
-            <div>Data</div>
+            <SettingsSelections grade = {selection}></SettingsSelections>
         </div>
         );
 }
